@@ -3,14 +3,14 @@ echo server, usage:
 
  python echo_server.py <port>
 
-Port is optional, default: 50000
+Port is optional, default: 50001
 """
 
 import socket 
 import sys
 
 host = '' 
-port = 50000 
+port = 50001
 
 if len(sys.argv) > 1:
     port = int(sys.argv[1])

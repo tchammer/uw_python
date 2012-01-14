@@ -20,14 +20,28 @@ if nargs > 1:
 if nargs > 2:
     port = int(sys.argv[2])
 
-s = socket.socket(socket.AF_INET, 
-                  socket.SOCK_STREAM) 
-s.connect((host,port))
+                  
 
 
-userstring = raw_input('please enter text string: ')
-s.send(userstring) 
-data = s.recv(size) 
-s.close() 
-print 'from (%s,%s) %s' % (host, port, data)
+done = False
+while not done:
+    userstring = raw_input('please enter text string: ')
+    if userstring == "":
+        done = True
+    else:
+        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
+        s.connect((host,port))
+        s.send(userstring) 
+        data = s.recv(size)
+        s.close()
+        print 'from (%s,%s) %s' % (host, port, data)
+
+
+        
+
+
+
+
+
+
 
